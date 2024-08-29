@@ -21,7 +21,7 @@ export function Creatorpage(props) {
                 <img src={creator.imageURL} width={250} height={250}></img>
                 <h2>{creator.name}</h2>
                 </header>
-                <a href={creator.url}>Creatorpage link</a>
+                <a href={creator.url}>Creator link</a>
                 <p>{creator.description}</p>
                 <Link to="/updatecreator" state={{creator}}><EditButton/></Link>
             </article>

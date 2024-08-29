@@ -13,9 +13,9 @@ export function Deletecreator({creator}) {
     }
     const handleDelete = (event) => {
         event.preventDefault();
-        deleteCreator()
-        alert(`Creator with name ${creator.name}, was deleted successfully.`);
-
+        deleteCreator().then(() => {
+            alert(`Creator with name ${creator.name}, was deleted successfully.`);
+        });
       }
 
 

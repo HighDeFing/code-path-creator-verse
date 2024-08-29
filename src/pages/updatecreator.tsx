@@ -35,10 +35,10 @@ export function Updatecreator(props) {
 
     const handleSubmit = (event) => {
     event.preventDefault();
-    insertCreator()
-    alert(`Creator with name ${creator.name}, image url ${creator.imageURL}, creator link${creator.url} and description ${creator.description}
-    , was updated`);
-    window.location.replace("/");
+    insertCreator().then(( ) => {alert(`Creator with name ${creator.name}, image url ${creator.imageURL}, creator link${creator.url} and description ${creator.description}
+    , was updated`)}).then(( ) => {
+                window.location.replace("/")
+                });
       }
 
 
