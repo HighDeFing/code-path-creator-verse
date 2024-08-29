@@ -1,4 +1,4 @@
-# WEB103 Prework - *👉🏿 Name of App Here*
+# WEB103 Prework - *👉🏿 A website for content creators*
 
 Submitted by: **👉🏿 Heider Delgado**
 
