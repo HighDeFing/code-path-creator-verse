@@ -2,6 +2,7 @@ import React, {Fragment} from 'react';
 import  { supabase } from '../client.js';
 import { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
+import InfoButton from "./InfoButton.tsx";
 
 export function Creators(props) {
 
@@ -22,16 +23,18 @@ export function Creators(props) {
 
     return (
 
-            <div>
+            <div class="grid">
                 {creators.map((creator) => (
                     <Fragment>
-                        <div className="card">
+                        <article>
+                            <header>
                             <img src={creator.imageURL} width={250} height={250}></img>
                             <h2>{creator.name}</h2>
+                            </header>
                             <a href={creator.url}>Creatorpage link</a>
                             <p>{creator.description}</p>
-                            <Link to="/creatorpage" state={{creator}}>Info</Link>
-                        </div>
+                            <Link to="/creatorpage" state={{creator}}><InfoButton/></Link>
+                        </article>
                     </Fragment>
                 ))}
             </div>

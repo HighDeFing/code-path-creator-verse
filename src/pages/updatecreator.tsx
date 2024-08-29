@@ -1,8 +1,10 @@
-import {Fragment} from 'react';
+import React, {Fragment} from 'react';
 import  { supabase } from '../client.js';
 import { useEffect, useState } from "react";
 import {Link, useLocation, useParams} from 'react-router-dom';
-import Deletecreator from "../components/deletecreator.tsx";
+import Deletecreator from "./deletecreator.tsx";
+import AddcreatorsButton from "../components/AddcreatorsButton.tsx";
+import AllcreatorsButton from "../components/AllcreatorsButton.tsx";
 
 export function Updatecreator(props) {
 
@@ -36,19 +38,20 @@ export function Updatecreator(props) {
     insertCreator()
     alert(`Creator with name ${creator.name}, image url ${creator.imageURL}, creator link${creator.url} and description ${creator.description}
     , was updated`);
+    window.location.replace("/");
       }
 
 
     return (
         <Fragment>
 
+                <section>
+                    <AddcreatorsButton/>
+                    <AllcreatorsButton/>
+                </section>
             <div>
-        <Link to="/" component="<Home />">All Creators </Link>
-        <Link to="/addcreator" component="<Addcreator />">Add Creator</Link>
-            </div>
-        <div>
-            <form onSubmit={handleSubmit}>
-                <label>Name:
+                <form onSubmit={handleSubmit}>
+                    <label>Name:
                     <br/><input type="text" value={creator.name}
                     onChange={(e) => putCreator({...creator, name: e.target.value})}/><br/>
                 </label>
@@ -57,22 +60,22 @@ export function Updatecreator(props) {
                     <input type="text" value={creator.imageURL}
                     onChange={(e) => putCreator({...creator, imageURL: e.target.value})}/><br/>
                 </label>
-                <label>Description: <br/>
+                <label>Description:
                     <p>Provide a description of the creator. Who are they? What makes them interesting?</p>
-                    <input type="text" value={creator.description}
-                    onChange={(e) => putCreator({...creator, description: e.target.value})}/><br/>
+                    <textarea
+                    value={creator.description}
+                    onChange={(e) => putCreator({...creator, description: e.target.value})}>
+                    </textarea>
                 </label>
                 <label>Social Media Links:
                     <p>Provide at least one of the creator's social media links.</p>
                     <input type="text" value={creator.url}
                     onChange={(e) => putCreator({...creator, url: e.target.value})}/><br/>
                 </label>
-                <input type="submit"/>
+                <input type="submit" value="Edit"/>
             </form>
         </div>
-            <div>
-                <Deletecreator creator={creator} />
-            </div>
+                <Deletecreator creator ={creator} />
         </Fragment>
     );
 }
