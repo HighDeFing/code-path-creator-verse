@@ -19,7 +19,7 @@ export function Updatecreator(props) {
     async function getCreators() {
     //console.log('Supabase Instace: ', supabase);
     let {data, error} = await supabase.from('creators').select().eq('primaryKey', url_param.primaryKey)
-        //console.log('data: ', data);
+        console.log('data: ', data);
         setCreator(data[0])
     }
 
@@ -66,24 +66,24 @@ export function Updatecreator(props) {
                 <form onSubmit={handleSubmit}>
                     <label>Name:
                     <br/><input type="text" value={creator.name}
-                    onChange={(e) => putCreator({...creator, name: e.target.value})}/><br/>
+                    onChange={(e) => setCreator({...creator, name: e.target.value})}/><br/>
                 </label>
                 <label>Image:
                     <p>Provide a link to an image of your creator. Be sure to include the http://</p>
                     <input type="text" value={creator.imageURL}
-                    onChange={(e) => putCreator({...creator, imageURL: e.target.value})}/><br/>
+                    onChange={(e) => setCreator({...creator, imageURL: e.target.value})}/><br/>
                 </label>
                 <label>Description:
                     <p>Provide a description of the creator. Who are they? What makes them interesting?</p>
                     <textarea
                     value={creator.description}
-                    onChange={(e) => putCreator({...creator, description: e.target.value})}>
+                    onChange={(e) => setCreator({...creator, description: e.target.value})}>
                     </textarea>
                 </label>
                 <label>Social Media Links:
                     <p>Provide at least one of the creator's social media links.</p>
                     <input type="text" value={creator.url}
-                    onChange={(e) => putCreator({...creator, url: e.target.value})}/><br/>
+                    onChange={(e) => setCreator({...creator, url: e.target.value})}/><br/>
                 </label>
                 <input type="submit" value="Edit"/>
             </form>
