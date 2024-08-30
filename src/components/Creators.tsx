@@ -31,7 +31,7 @@ export function Creators(props) {
                             <img src={creator.imageURL} width={250} height={250}></img>
                             <h2>{creator.name}</h2>
                             </header>
-                            <a href={creator.url}>Creator Link</a>
+                            <a href={creator.url} target="_blank">Creator Link</a>
                             <p>{creator.description}</p>
                             <Link to={`/creatorpage/${creator.primaryKey}`} state={{creator}}><InfoButton/></Link>
                         </article>
