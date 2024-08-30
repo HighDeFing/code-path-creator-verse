@@ -8,17 +8,30 @@ import AllcreatorsButton from "../components/AllcreatorsButton.tsx";
 
 export function Updatecreator(props) {
 
-    const { state } = useLocation();
-    const creator_placeholder = state.creator;
+    const url_param = useParams()
+    const [ creator, setCreator ] = useState([]);
 
-    console.log("This is a message", creator_placeholder);
-    const [creator, putCreator] = useState({
-        primaryKey: creator_placeholder.primaryKey,
-        name: creator_placeholder.name,
-    imageURL: creator_placeholder.imageURL,
-        url: creator_placeholder.url,
-        description: creator_placeholder.description
-    });
+
+    useEffect(() => {
+      getCreators();
+    }, []);
+
+    async function getCreators() {
+    //console.log('Supabase Instace: ', supabase);
+    let {data, error} = await supabase.from('creators').select().eq('primaryKey', url_param.primaryKey)
+        //console.log('data: ', data);
+        setCreator(data[0])
+    }
+
+
+    // console.log("This is a message", creator_placeholder);
+    // const [creator, putCreator] = useState({
+    //     primaryKey: creator_placeholder.primaryKey,
+    //     name: creator_placeholder.name,
+    // imageURL: creator_placeholder.imageURL,
+    //     url: creator_placeholder.url,
+    //     description: creator_placeholder.description
+    // });
 
     // useEffect(() => {
     //   insertCreator();

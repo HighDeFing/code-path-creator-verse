@@ -14,10 +14,10 @@ export function Todo(props) {
     return (
         <Router>
             <Routes>
-                <Route path="/creatorpage" element={<Creatorpage />} />
+                <Route path="/creatorpage/:primaryKey" element={<Creatorpage />} />
                 <Route path="/" element={<Home />} />
                 <Route path="/addcreator" element={<Addcreator />} />
-                <Route path="/updatecreator" element={<Updatecreator />} />
+                <Route path="/updatecreator/:primaryKey" element={<Updatecreator />} />
             </Routes>
         </Router>
 

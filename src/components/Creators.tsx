@@ -22,9 +22,9 @@ export function Creators(props) {
     //console.log(creators);
 
     return (
+<div class="grid">
+                {creators.map((creator, index) => (
 
-            <div class="grid">
-                {creators.map((creator) => (
                     <Fragment>
                         <article>
                             <header>
@@ -33,12 +33,12 @@ export function Creators(props) {
                             </header>
                             <a href={creator.url}>Creator Link</a>
                             <p>{creator.description}</p>
-                            <Link to="/creatorpage" state={{creator}}><InfoButton/></Link>
+                            <Link to={`/creatorpage/${creator.primaryKey}`} state={{creator}}><InfoButton/></Link>
                         </article>
                     </Fragment>
-                ))}
-            </div>
 
+                ))}
+ </div>
 
     );
 }
