@@ -4,7 +4,7 @@ Submitted by: **👉🏿 Heider Delgado**
 
 About this web app: **👉🏿 A web pretask A person's top content creators can say a lot about them. Do they prefer lockpicking videos 🔒, casual art streams 🖼️, or hustle-culture TikTokers 📱?**
 
-Time spent: **👉🏿 16** hours
+Time spent: **👉🏿 18** hours
 
 ## Required Features
 
